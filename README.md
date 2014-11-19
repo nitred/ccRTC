@@ -20,7 +20,7 @@ RTC emulation library for CC3200 on the Energia Framework
  - ** ccRTC.begin()
 
 
-* The library uses the PRCM library of the CC3200 soruce code. There is an RTC function that has been exposed in the PRCM library which has been used to get the RTC functionality.
+* The library uses the PRCM library of the CC3200 source code. There is an RTC function that has been exposed in the PRCM library which has been used to get the RTC functionality.
 
 * The library follows the UNIX TIMESTAMP, so it has a range from 1st Jan 1970 to 18th Jan 2038
 
@@ -41,10 +41,10 @@ This can be done by subtracting the total seconds from 1900 to 1970 from the NTP
 
 1) Download and extract the ccRTC folder into the /Energia/hardware/cc3200/libraries folder.
 
-2) In your code use "#include <ccRTC.h>" at the top.
+2) In your code use #include "ccRTC.h" at the top.
 
 3) An instance of the rtcClass called "ccRTC" is already declared, so  you can directly call methods like e.g. "ccRTC.method()".
 
-4) Call ccRTC.begin() in your Setup() and you're good to go.
+4) You have to do a mandatory call to ccRTC.begin() in your Setup() and you're good to go.
 
 5) Ideally call ccRTC.setTime() and ccRTC.zone() in your Setup to initialize your RTC to the current time and timezone.
