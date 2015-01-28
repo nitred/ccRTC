@@ -47,7 +47,7 @@ unsigned long rtcClass::now(void){
 	unsigned long temp_seconds = 0;
 	unsigned short temp_mseconds = 0;
 	PRCMRTCGet(&temp_seconds, &temp_mseconds);
-	temp_seconds += Timezoneadjust;
+	//temp_seconds += temp_timestamp	// Removing this since it is a bug. Timestamp is universal and need not be adjusted by Timezone
 	return temp_seconds;
 }
 
@@ -73,6 +73,9 @@ void rtcClass::updateTimeVariables(unsigned long temptime){
 	int days_left_in_year;
 	int seconds_in_day;
 	int minutes_in_day;
+	
+	/* Adding Time Zone Adjustment to the timestamp to calculate the Year, Month, Day, etc for that particular Timezone*/
+	temp_timestamp += Timezoneadjust;
 	
 	/* This is to make sure timestamp is not negative.
 	Ideally negative seconds can be converted to time, but it requires some foolproof logic which is currently not implemented */
@@ -174,7 +177,7 @@ unsigned long rtcClass::year(unsigned long temptime){
 }
 
 unsigned long rtcClass::year(void){
-	updateTimeVariables();
+	updateTimeVariables(now());
 	return Year;
 }
 
