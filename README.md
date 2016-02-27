@@ -1,3 +1,9 @@
+#### Notice
+I have stopped support for this repository as of now since I'm not working on the CC3200 (or any embedded systems platforms) at this point of time. Please feel free to fork and develop it further if you're interested and let me know of the same so that I can point to your repository.
+
+I will continue to take pull requests until someone takes over.
+
+
 CC-RTC
 ======
 
